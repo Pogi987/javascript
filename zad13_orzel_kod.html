@@ -1,0 +1,27 @@
+<textarea cols="90" rows="24" readonly>
+<html>
+ <body>
+
+ <script language="JavaScript">
+// Paweł Orzeł
+// Zad 13 ułamki egipskie
+
+var m_orz = prompt("Podaj wartość m:", "");
+var m = parseInt(m_orz);
+
+var a = m + 1;
+var b = m * (m + 1);
+
+document.write("Rozkład ułamka egipskiego:<br>");
+document.write("1/" + m + " = 1/" + a + " + 1/" + b + "<br><br>");
+
+
+function okno_zamknij_orz() {
+  window.close()
+}
+ </script>
+ </div>
+ <input type="button" value="zamknij okno" onclick="okno_zamknij_orz()"/>
+ </body>
+</html>
+</textarea>
