@@ -1,0 +1,78 @@
+<textarea cols="90" rows="24" readonly>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Zadanie 22 Orzel</title>
+</head>
+<body>
+    <script>
+
+function pobierzBoki_orz()
+{
+    const a_orz = Number(document.getElementById("a_dane_orz").value);
+    const b_orz = Number(document.getElementById("b_dane_orz").value);
+
+    const poprawne = Number.isFinite(a_orz) && Number.isFinite(b_orz) && a_orz > 0 && b_orz > 0;
+
+    if (!poprawne)
+    {
+        alert("Podaj poprawne długości boków.");
+        return null;
+    }
+
+    return { a: a_orz, b: b_orz };
+}
+
+function Pole_orz()
+{
+    const boki = pobierzBoki_orz();
+    if (!boki) return;
+
+    const pole_orz = boki.a * boki.b;
+    document.getElementById("pole").value = pole_orz.toFixed(2);
+}
+
+function obwod_orz()
+{
+    const boki = pobierzBoki_orz();
+    if (!boki) return;
+
+    const obwod_orz = (boki.a + boki.b) * 2;
+    document.getElementById("obw").value = obwod_orz.toFixed(2);
+}
+
+</script>
+<h2>Obliczanie pola i obwodu prostokąta</h2>
+
+<p>Podaj długość pierwszego boku:</p>
+<input type="number" id="a_dane_orz" step="any">
+
+<p>Podaj długość drugiego boku:</p>
+<input type="number" id="b_dane_orz" step="any">
+
+<br><br>
+
+<button onclick="Pole_orz()">Oblicz pole</button>
+<button onclick="obwod_orz()">Oblicz obwód</button> 
+
+<br><br>
+
+<table border="1">
+    <tr>
+        <th>Wynik</th>
+        <th>Wartość</th>
+    </tr>
+    <tr>
+        <td>Pole prostokąta</td>
+        <td><input type="text" id="pole" readonly></td>
+    </tr>
+    <tr>
+        <td>Obwód prostokąta</td>
+        <td><input type="text" id="obw" readonly></td>
+    </tr>
+</table>
+
+</body>
+</html>
+  </textarea>
