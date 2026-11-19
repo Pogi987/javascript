@@ -7,36 +7,38 @@
 <body>
     <script>
 
-function Pole_orz(a_orz, b_orz)
+function pobierzBoki_orz()
 {
-    a_star = parseFloat(document.getElementById("a_dane_orz").value);
-    b_star = parseFloat(document.getElementById("b_dane_orz").value);
+    const a_orz = Number(document.getElementById("a_dane_orz").value);
+    const b_orz = Number(document.getElementById("b_dane_orz").value);
 
-    if (isNaN(a_orz) || isNaN(b_orz) || a_orz <= 0 || b_orz <= 0)
+    const poprawne = Number.isFinite(a_orz) && Number.isFinite(b_orz) && a_orz > 0 && b_orz > 0;
+
+    if (!poprawne)
     {
         alert("Podaj poprawne długości boków.");
-        return;
+        return null;
     }
 
-    var wynik_orz = a_orz * b_orz;
-
-    document.getElementById("pole").value = wynik_orz.toFixed(2);
+    return { a: a_orz, b: b_orz };
 }
 
-function obwod_orz(a_orz, b_orz)
+function Pole_orz()
 {
-    a_orz = parseFloat(document.getElementById("a_dane_orz").value);
-    b_orz = parseFloat(document.getElementById("b_dane_orz").value);
+    const boki = pobierzBoki_orz();
+    if (!boki) return;
 
-    if (isNaN(a_orz) || isNaN(b_orz) || a_orz <= 0 || b_orz <= 0)
-    {
-        alert("Podaj poprawne długości boków.");
-        return;
-    }
+    const pole_orz = boki.a * boki.b;
+    document.getElementById("pole").value = pole_orz.toFixed(2);
+}
 
-    var wynik_orz = 2 * a_orz + 2 * b_orz;
+function obwod_orz()
+{
+    const boki = pobierzBoki_orz();
+    if (!boki) return;
 
-    document.getElementById("obw").value = wynik_orz.toFixed(2);
+    const obwod_orz = (boki.a + boki.b) * 2;
+    document.getElementById("obw").value = obwod_orz.toFixed(2);
 }
 
 </script>
