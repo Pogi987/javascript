@@ -1,0 +1,63 @@
+<textarea cols="90" rows="24" readonly>
+<!DOCTYPE html>
+<head>
+<title> Użycie fukcji Zadanie 18 Orzel </title>
+<meta charset="utf-8">
+</head>
+<body>
+<div style="color:navy;font-size:50px;">
+<script language="JavaScript">
+  
+var a=parseFloat(prompt("a=",""));
+var b=parseFloat(prompt("b=",""));
+function suma_orz(a, b) 
+{
+return a + b;
+}
+  
+function odejmowanie_orz(a, b) 
+{
+    return a - b;
+}
+
+function mnozenie_orz(a, b) 
+{
+    return a * b;
+}
+
+function do_kwadratu_orz(a, b) 
+{
+    return "a² = " + (a * a) + "<br>b² = " + (b * b);
+}
+
+function reszta_z_dzielenia_orz(a, b) 
+{
+    return a % b;
+}
+  
+document.write("suma="+suma_orz(a,b)+"<br>");
+document.write("Liczba a = " + a + "<br>");
+document.write("Liczba b = " + b + "<br><br>");
+
+document.write("Odejmowanie = " + odejmowanie_orz(a, b) + "<br>");
+document.write("Mnożenie = " + mnozenie_orz(a, b) + "<br>");
+  
+
+document.write("Liczba do kwadratu:<br>");
+document.write(do_kwadratu_orz(a, b) + "<br><br>");
+  
+
+if (b !== 0) 
+{
+    document.write("Reszta z dzielenia = " +
+        reszta_z_dzielenia_orz(a, b));
+} 
+else 
+{
+    document.write("Nie można obliczyć reszty z dzielenia przez zero.");
+}
+</script>
+</div>
+</body>
+</html>
+</textarea>
