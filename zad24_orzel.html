@@ -14,28 +14,26 @@
 <body>
 
 <script>
+    const x1_orz = Number(prompt("Podaj pierwszą liczbę (x1 - w stopniach):"));
+    const x2_orz = Number(prompt("Podaj drugą liczbę (x2):"));
 
-    let x1_orz = parseFloat(prompt("Podaj pierwszą liczbę (x1 - w stopniach):"));
-    let x2_orz = parseFloat(prompt("Podaj drugą liczbę (x2):"));
+    document.write(`x1 = ${x1_orz}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x2 = ${x2_orz}<br>`);
 
-    document.write("x1 = " + x1_orz + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x2 = " + x2_orz + "<br>");
+    const rad_orz = x1_orz * (Math.PI / 180);
 
-    let rad_orz = (x1_orz * Math.PI) / 180;
+    document.write(`x1 = ${x1_orz}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x1 = ${rad_orz.toFixed(2)}<br>`);
 
-    document.write("x1 = " + x1_orz + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x1 = " + rad_orz.toFixed(2) + "<br>");
+    const dlugosc_imienia_orz = 5;
+    const potega_orz = dlugosc_imienia_orz / (dlugosc_imienia_orz + 2);
+    const y1_orz = 3 * (x1_orz ** potega_orz);
+    document.write(`y1 = ${y1_orz.toFixed(2)}<br>`);
 
+    const y2_orz = 2 * Math.cos(rad_orz) + 3 * Math.sin(rad_orz);
+    document.write(`y2 = ${y2_orz.toFixed(2)}<br>`);
 
-    let liczba_liter_imienia_star = 5; 
-    let wykladnik_orz = liczba_liter_imienia_orz / (liczba_liter_imienia_orz + 2);
-    let y1_orz = 3 * Math.pow(x1_orz, wykladnik_orz);
-    document.write("y1 = " + y1_orz.toFixed(2) + "<br>");
-
-    let y2_star = 2 * Math.cos(rad_orz) + 3 * Math.sin(rad_orz);
-    document.write("y2 = " + y2_orz.toFixed(2) + "<br>");
-
-    let pod_pierwiastkiem_star = Math.pow(x1_orz, 5) + 2 * Math.pow(x2_orz, 4);
-    let y3_star = Math.cbrt(pod_pierwiastkiem_orz) * Math.abs(x1_orz - x2_orz);
-    document.write("y3 = " + y3_orz.toFixed(2) + "<br>");
+    const wnetrze_pierwiastka_orz = (x1_orz ** 5) + 2 * (x2_orz ** 4);
+    const y3_orz = Math.cbrt(wnetrze_pierwiastka_orz) * Math.abs(x1_orz - x2_orz);
+    document.write(`y3 = ${y3_orz.toFixed(2)}<br>`);
 </script>
 
 </body>
