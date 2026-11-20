@@ -1,0 +1,72 @@
+<textarea cols="90" rows="24" readonly>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Zadanie 20 Orzel</title>
+</head>
+<body>
+
+<h2>Obliczanie długości boków trójkąta</h2>
+
+<script>
+
+var xa_orz = parseFloat(prompt("Podaj xa punktu A:"));
+var ya_orz = parseFloat(prompt("Podaj ya punktu A:"));
+
+var xb_orz = parseFloat(prompt("Podaj xb punktu B:"));
+var yb_orz = parseFloat(prompt("Podaj yb punktu B:"));
+
+var xc_orz = parseFloat(prompt("Podaj xc punktu C:"));
+var yc_orz = parseFloat(prompt("Podaj yc punktu C:"));
+
+</script>
+
+<p>
+<button onclick="AB_orz()">Oblicz AB</button>
+<button onclick="BC_orz()">Oblicz BC</button>
+<button onclick="AC_orz()">Oblicz AC</button>
+</p>
+
+<p id="wynik"></p>
+
+<script>
+
+function AB_orz()
+{
+    var wynik_orz = Math.sqrt(
+        Math.pow(xb_orz - xa_orz, 2) +
+        Math.pow(yb_orz - ya_orz, 2)
+    );
+
+    document.getElementById("wynik").innerHTML =
+    "Długość boku AB = " + wynik_orz.toFixed(2);
+}
+
+function BC_orz()
+{
+    var wynik_orz = Math.sqrt(
+        Math.pow(xc_orz - xb_orz, 2) +
+        Math.pow(yc_orz - yb_orz, 2)
+    );
+
+    document.getElementById("wynik").innerHTML =
+    "Długość boku BC = " + wynik_orz.toFixed(2);
+}
+
+function AC_orz()
+{
+    var wynik_orz = Math.sqrt(
+        Math.pow(xc_orz - xa_orz, 2) +
+        Math.pow(yc_orz - ya_orz, 2)
+    );
+
+    document.getElementById("wynik").innerHTML =
+    "Długość boku AC = " + wynik_orz.toFixed(2);
+}
+
+</script>
+
+</body>
+</html>
+  </textarea>
