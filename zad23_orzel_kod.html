@@ -1,56 +1,48 @@
 <textarea cols="90" rows="24" readonly>
 <!DOCTYPE html>
-<html>
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <title>Zadanie 23 Orzel</title>
+    <title>Zadanie 23 — Orzeł</title>
+</head>
+<body>
+    <h2>Drabina oparta o mur</h2>
+
+    <form id="formularz_orz">
+        <label for="d_orz">Wysokość oparcia drabiny D [m]:</label>
+        <input type="number" id="d_orz" step="any"><br><br>
+
+        <label for="x_orz">Odległość drabiny od muru X [m]:</label>
+        <input type="number" id="x_orz" step="any"><br><br>
+
+        <button type="button" onclick="oblicz_orz()">Oblicz</button>
+        <br><br>
+
+        <label for="wynik_dlugosc_orz">Długość drabiny [m]:</label>
+        <input type="text" id="wynik_dlugosc_orz" readonly><br><br>
+
+        <label for="wynik_kat_orz">Kąt nachylenia [stopnie]:</label>
+        <input type="text" id="wynik_kat_orz" readonly>
+    </form>
 
     <script>
-        function dlugosc_orz(d_orz, x_orz) {
-            return Math.sqrt(Math.pow(d_orz, 2) + Math.pow(x_orz, 2));
-        }
+        const dlugosc_orz = (d_orz, x_orz) => Math.hypot(d_orz, x_orz);
 
-        function kat_star(d_orz, x_orz) {
-            return Math.atan(d_orz / x_orz) * 180 / Math.PI;
-        }
+        const kat_orz = (d_orz, x_orz) => (Math.atan2(d_orz, x_orz) * 180) / Math.PI;
 
         function oblicz_orz() {
-            var d_orz = parseFloat(document.getElementById("d_orz").value);
-            var x_orz = parseFloat(document.getElementById("x_orz").value);
+            const d_orz = Number(document.getElementById("d_orz").value);
+            const x_orz = Number(document.getElementById("x_orz").value);
 
-            if (isNaN(d_orz) || isNaN(x_orz) || d_orz <= 0 || x_orz <= 0) {
+            if (!Number.isFinite(d_orz) || !Number.isFinite(x_orz) || d_orz <= 0 || x_orz <= 0) {
                 alert("Podaj poprawne dodatnie wartości!");
                 return;
             }
 
-            document.getElementById("wynik_dlugosc").value =
-                dlugosc_star(d_orz, x_orz).toFixed(2);
-
-            document.getElementById("wynik_kat").value =
-                kat_star(d_orz, x_orz).toFixed(2);
+            document.getElementById("wynik_dlugosc_orz").value = dlugosc_orz(d_orz, x_orz).toFixed(2);
+            document.getElementById("wynik_kat_orz").value = kat_orz(d_orz, x_orz).toFixed(2);
         }
     </script>
-</head>
-
-<body>
-    <h2>Drabina oparta o mur</h2>
-
-    <form>
-        Wysokość oparcia drabiny D [m]:
-        <input type="number" id="d_orz" step="any"><br><br>
-
-        Odległość drabiny od muru X [m]:
-        <input type="number" id="x_orz" step="any"><br><br>
-
-        <input type="button" value="Oblicz" onclick="oblicz_orz()">
-        <br><br>
-
-        Długość drabiny [m]:
-        <input type="text" id="wynik_dlugosc" readonly><br><br>
-
-        Kąt nachylenia [stopnie]:
-        <input type="text" id="wynik_kat" readonly>
-    </form>
 </body>
 </html>
   </textarea>
